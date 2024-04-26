@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import SearchIcon from '@mui/icons-material/Search';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link } from 'react-router-dom';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import SearchIcon from '@mui/icons-material/Search'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { Link } from 'react-router-dom'
+import {addProduct} from "../redux/cartRedux"
+import {Toaster, toast} from 'sonner'
+import { useDispatch } from 'react-redux'
+
 
 
 const Info = styled.div`
@@ -73,14 +77,26 @@ const Name = styled.p`
 `
 
 
+
+
 const Product = ({item}) => {
+
+    const dispatch = useDispatch()
+
+    const handleClick = (product) => {
+        dispatch(
+            addProduct({ ...product, quantity: 1 }) 
+        )
+        toast.success('Product added!')
+    };
+
   return (
     <Container>   
         <Circle/>
             <Image src={item.img}/>
             <Name>{item.name}</Name>
         <Info>
-            <Icon>
+            <Icon onClick={() => handleClick(item)}>
                 <ShoppingCartOutlinedIcon/>
             </Icon>
             <Icon>
@@ -92,6 +108,8 @@ const Product = ({item}) => {
                 <FavoriteBorderIcon/>
             </Icon>
         </Info>
+        <Toaster richColors/>
+
     </Container>
   )
 }

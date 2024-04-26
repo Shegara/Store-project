@@ -5,7 +5,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart, addProduct } from "../redux/cartRedux";
+import { clearCart, addProduct, removeProduct } from "../redux/cartRedux";
 import { Link } from 'react-router-dom'; 
 import {Toaster, toast} from 'sonner'
 
@@ -149,7 +149,7 @@ const Button = styled.button`
   background-color: black;
   color: white;
   font-weight: 600;
-`;
+`
 
 const Cart = () => {
   const cart = useSelector(state => state.cart)
@@ -159,10 +159,23 @@ const Cart = () => {
     toast('Cart cleared!')
   }
 
+  
+  const handleClickAdd = (product) => {
+    dispatch(addProduct({ ...product, quantity: 1 }));
+    toast.success('Product added!');
+  }
+
+  const handleClickRemove = (product) => {
+    dispatch(removeProduct({product, quantity: 1}));
+    toast('Product removed!');
+  }
+  
 
   let shippingCost = 5
 
   return (
+
+    
     <Container>
       <Hero />
       <Navbar />
@@ -201,10 +214,12 @@ const Cart = () => {
                   <ProductAmountContainer>
                     <AddIcon 
                       style={{ cursor: 'pointer' }}
+                      onClick={() => handleClickAdd(product)}
                     />
                     <ProductAmount>{product.quantity}</ProductAmount>
                     <RemoveIcon 
                       style={{ cursor: 'pointer' }}
+                      onClick={() => handleClickRemove(product)}
                     />
                   </ProductAmountContainer>
                   <ProductPrice>
