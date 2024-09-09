@@ -16,15 +16,15 @@ cd api
 
 npm start
 
-## For the frontend
+## Start the frontend server
 cd client
 
 npm start
 
-# Usage
+# USAGE
 *General idea*
 
-The Ecommerce Yugioh TCG application is designed to offer a comprehensive platform for managing and interacting with Yu-Gi-Oh trading card game products. The application is split into two main components:
+The Ecommerce Yugioh TCG application is designed to offer a small platform for managing and interacting with Yu-Gi-Oh trading cards which are my hobby. The application is split into two several components, with two separate frontend and backend servers managing the data and the UI:
 
 *Frontend*
 
@@ -40,7 +40,7 @@ Server: Powered by Node.js and Express, providing dynamic routing and RESTful de
 Database: Uses MongoDB for scalable NoSQL data storage, including sorting products based on values stored in the backend.
 Authentication: Manages authentication and permissions with JWT tokens for secure HTTP requests.
 
-# Author
+# AUTHOR
 Marko Šego - Shegara (https://github.com/Shegara)
 
 
