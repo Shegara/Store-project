@@ -3,7 +3,7 @@ const Cart = require ("../models/Cart")
 
 const router = require("express").Router();
 
-//CREATE PRODUCT
+//CREATE POST
 router.post("/", verifyToken, async (req,res) => {
     const newCart = new Cart(req.body)
 
@@ -15,7 +15,7 @@ router.post("/", verifyToken, async (req,res) => {
     }
 })
 
-//UPDATE PRODUCT 
+//UPDATE POST
 router.put("/:id", verifyToken, async (req,res) => {
     try{
         const updatedCart = await Cart.findByIdAndUpdate(
@@ -29,7 +29,7 @@ router.put("/:id", verifyToken, async (req,res) => {
     }
 })
 
-//DELETE CART
+//DELETE POST
 router.delete("/:id", verifyToken, async (req,res) => {
     try{
         await Cart.findByIdAndDelete(req.params.id)

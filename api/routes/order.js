@@ -3,7 +3,7 @@ const Order = require ("../models/Order")
 
 const router = require("express").Router();
 
-//CREATE ORDER
+//CREATE 
 router.post("/", verifyToken, async (req,res) => {
     const newOrder = new Order(req.body)
     try {

@@ -3,7 +3,7 @@ const Product = require ("../models/Product")
 
 const router = require("express").Router();
 
-//CREATE Product
+//CREATE PRODUCT
 router.post("/", verifyTokenAndAdmin, async (req,res) => {
     const newProduct = new Product(req.body)
 
