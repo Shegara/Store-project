@@ -26,6 +26,8 @@ npm start
 
 The Ecommerce Yugioh TCG application is designed to offer a small platform for managing and interacting with Yu-Gi-Oh trading cards which are my hobby. The application is split into two several components, with two separate frontend and backend servers managing the data and the UI:
 
+
+
 *Frontend*
 
 Multi-Page Interface: Features a responsive design allowing users to navigate between login, registration, and product pages. The interface is built with reusable React components and communicates through props.
@@ -33,6 +35,8 @@ Data Handling: Utilizes Axios and React state hooks for fetching and managing da
 Notifications: Employs the Toast library for displaying user notifications and alerts.
 Session Management: React Persist is used to maintain user sessions, enabling functionalities like login, registration, and logout.
 Global State Management: Redux handles global state management and updates.
+
+
 
 *Backend*
 
